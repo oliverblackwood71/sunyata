@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif-jp: var(--font-serif-jp), serif;
+  --font-cinzel: var(--font-cinzel), serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  
+  --color-zen-black: #111111;
+  --color-zen-white: #fafafa;
+  --color-zen-gray-dark: #333333;
+  --color-zen-gray-light: #888888;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111111;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Custom Zen-minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+
+/* Animations for Enso Circle */
+@keyframes breathe {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(1deg) scale(1.03);
+  }
+}
+
+@keyframes ink-spread {
+  0% {
+    filter: blur(10px);
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-breathe {
+  animation: breathe 10s ease-in-out infinite;
+}
+
+.animate-ink-spread {
+  animation: ink-spread 2s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+}
+
+/* Zen slash animation */
+@keyframes slash {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: right;
+    opacity: 0;
+  }
+}
+
+.animate-slash {
+  animation: slash 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
