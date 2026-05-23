@@ -57,7 +57,7 @@ body {
   0% {
     filter: blur(10px);
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   100% {
     filter: blur(0px);
@@ -95,5 +95,33 @@ body {
 }
 
 .animate-slash {
-  animation: slash 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+  animation: slash 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+/* Floating particles representing incense smoke / drifting dust */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(110vh) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.15;
+  }
+  90% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(40px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.animate-particle-slow {
+  animation: floatParticle 22s linear infinite;
+}
+.animate-particle-mid {
+  animation: floatParticle 16s linear infinite;
+}
+.animate-particle-fast {
+  animation: floatParticle 12s linear infinite;
 }
